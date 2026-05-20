@@ -80,7 +80,7 @@ def parse_cath_superfamily_list(filepath: Path):
             if len(toks) < 4:
                 continue
             c, a, t, h = toks[0:4]
-            desc = toks[4] if len(toks) >= 5 else ""
+            desc = " ".join(toks[4:]).strip() if len(toks) >= 5 else ""
             cat = f"{c}.{a}.{t}"
             cath = f"{c}.{a}.{t}.{h}"
             mapping[cath] = {"c": c, "a": a, "t": t, "h": h, "cat": cat, "cath": cath, "description": desc}
